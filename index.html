@@ -2,30 +2,143 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Business Name</title>
+    <title>Healy's Equipment Rentals</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f7fa;
         }
-        h1 {
-            color: #333;
+        /* Banner */
+        .banner {
+            background: linear-gradient(90deg, #3eaf7c 0%, #33a1fd 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px;
+            box-shadow: 0 3px 12px rgba(60,130,200,0.09);
         }
-        p {
-            color: #666;
+        .banner-logo {
+            height: 64px;
+            width: 64px;
+            object-fit: contain;
+            background: #fff;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        .business-title {
+            font-size: 2.3em;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+        /* Main container */
+        .main-container {
+            max-width: 980px;
+            margin: 32px auto;
+            padding: 24px;
+            background: #fff;
+            box-shadow: 0 6px 32px rgba(40,50,100,0.06);
+            border-radius: 24px;
+        }
+        /* Overview section */
+        .overview {
+            margin-bottom: 32px;
+            border-left: 6px solid #3eaf7c;
+            padding-left: 18px;
+        }
+        .overview h2 {
+            color: #189063;
+            margin: 0 0 10px 0;
+        }
+        .overview p {
+            font-size: 1.1em;
+            color: #3a3a3a;
+        }
+        /* Rental breakdown section */
+        .rental-breakdown h2 {
+            color: #2180d7;
+        }
+        .rental-cards {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .rental-card {
+            flex: 1 1 260px;
+            background: linear-gradient(135deg, #e1f8ff 0%, #aeeff7 100%);
+            border-radius: 16px;
+            padding: 24px 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 16px rgba(30,140,240,0.08);
+            transition: transform 0.2s;
+        }
+        .rental-card:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 10px 24px rgba(60,130,200,0.15);
+        }
+        .rental-card h3 {
+            margin-top: 0;
+            color: #147aae;
+        }
+        .rental-card ul {
+            padding-left: 20px;
+        }
+        /* Responsive */
+        @media (max-width: 800px) {
+            .main-container { padding: 10px; }
+            .rental-cards { flex-direction: column; gap: 14px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Your Business</h1>
+    <header class="banner">
+        <!-- Replace src with your logo file path -->
+        <img src="Healy's Equipment Rentals (White Backround).png" alt="Healy's Equipment Rentals Logo" class="banner-logo"/>
+        <span class="business-title">Healy's Equipment Rentals</span>
     </header>
-    <main>
-        <p>This is your business website. Add your content here.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 Your Business Name</p>
-    </footer>
+    <div class="main-container">
+        <!-- Overview Section -->
+        <section class="overview">
+            <h2>Overview</h2>
+            <p>
+                Healy's Equipment Rentals provides top-quality construction and landscaping machinery for contractors, homeowners, and DIY enthusiasts. With competitive rates, flexible rental terms, and friendly support, we make your project simple and affordable.
+            </p>
+        </section>
+        <!-- Rental Breakdown Section -->
+        <section class="rental-breakdown">
+            <h2>Rental Breakdown</h2>
+            <div class="rental-cards">
+                <div class="rental-card">
+                    <h3>Compact Equipment</h3>
+                    <ul>
+                        <li>Mini excavators</li>
+                        <li>Skid steers</li>
+                        <li>Track loaders</li>
+                        <li>Rates: From $200/day</li>
+                    </ul>
+                </div>
+                <div class="rental-card">
+                    <h3>Landscaping Tools</h3>
+                    <ul>
+                        <li>Sod cutters</li>
+                        <li>Brush mowers</li>
+                        <li>Tillers</li>
+                        <li>Rates: From $40/day</li>
+                    </ul>
+                </div>
+                <div class="rental-card">
+                    <h3>Construction Gear</h3>
+                    <ul>
+                        <li>Concrete saws</li>
+                        <li>Plate compactors</li>
+                        <li>Jackhammers</li>
+                        <li>Rates: From $65/day</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
+
