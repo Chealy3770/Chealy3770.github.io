@@ -12,19 +12,50 @@
         }
         /* Banner */
         .banner {
-            background: #ffffff; /* White banner */
+            background: #ffffff;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
             padding: 0 40px;
             box-shadow: 0 3px 12px rgba(60,130,200,0.09);
-            height: 140px; /* Banner height */
+            height: 140px;
+        }
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
         .banner-logo {
-            width: 33vw;    /* One-third of viewport width */
-            height: 100%;   /* Full banner height */
+            width: 33vw;
+            height: 100%;
             object-fit: contain;
             border-radius: 8px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+        .nav-links a {
+            text-decoration: none;
+        }
+        .nav-button {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 1px solid #3eaf7c;
+            background: #ffffff;
+            color: #189063;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, transform 0.1s;
+        }
+        .nav-button.active {
+            background: #3eaf7c;
+            color: #ffffff;
+        }
+        .nav-button:hover {
+            background: #33a1fd;
+            color: #ffffff;
+            transform: translateY(-1px);
         }
         /* Main container */
         .main-container {
@@ -78,6 +109,56 @@
         .rental-card ul {
             padding-left: 20px;
         }
+        /* Attachments section */
+        .attachments {
+            margin-top: 32px;
+        }
+        .attachments h2 {
+            color: #2180d7;
+        }
+        .attachment-cards {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .attachment-card {
+            flex: 1 1 260px;
+            background: #f7f9ff;
+            border-radius: 16px;
+            padding: 20px 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 12px rgba(40,50,100,0.06);
+        }
+        .attachment-card h3 {
+            margin-top: 0;
+            color: #324b81;
+        }
+        .attachment-card p {
+            margin: 6px 0 0;
+            color: #4d4d4d;
+            font-size: 0.95em;
+        }
+        /* Related links section */
+        .related-links {
+            margin-top: 32px;
+        }
+        .related-links h2 {
+            color: #2180d7;
+        }
+        .related-links ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .related-links li {
+            margin-bottom: 8px;
+        }
+        .related-links a {
+            color: #147aae;
+            text-decoration: none;
+        }
+        .related-links a:hover {
+            text-decoration: underline;
+        }
         /* Responsive */
         @media (max-width: 800px) {
             .banner {
@@ -85,29 +166,47 @@
                 padding: 0 16px;
             }
             .banner-logo {
-                width: 50vw; /* Slightly larger on small screens */
+                width: 50vw;
             }
             .main-container {
                 padding: 10px;
             }
-            .rental-cards {
+            .rental-cards,
+            .attachment-cards {
                 flex-direction: column;
                 gap: 14px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: flex-end;
             }
         }
     </style>
 </head>
 <body>
     <header class="banner">
-        <img src="Healys-Equipment-Rentals-White-Background.png" alt="Healy's Equipment Rentals Logo" class="banner-logo" />
+        <div class="banner-left">
+            <img src="Healys-Equipment-Rentals-White-Background.png" alt="Healy's Equipment Rentals Logo" class="banner-logo" />
+        </div>
+        <nav class="nav-links">
+            <!-- Rentals is current page -->
+            <a href="index.html"><button class="nav-button active">Rentals</button></a>
+            <!-- You will create these pages later as about.html and privacy.html -->
+            <a href="about.html"><button class="nav-button">About Us</button></a>
+            <a href="privacy.html"><button class="nav-button">Privacy &amp; Terms</button></a>
+        </nav>
     </header>
+
     <div class="main-container">
+        <!-- Overview Section -->
         <section class="overview">
             <h2>Overview</h2>
             <p>
                 Healy's Equipment Rentals provides top-quality construction and landscaping machinery for contractors, homeowners, and DIY enthusiasts. With competitive rates, flexible rental terms, and friendly support, we make your project simple and affordable.
             </p>
         </section>
+
+        <!-- Rental Breakdown Section -->
         <section class="rental-breakdown">
             <h2>Rental Breakdown</h2>
             <div class="rental-cards">
@@ -140,6 +239,37 @@
                 </div>
             </div>
         </section>
+
+        <!-- Attachments Section -->
+        <section class="attachments">
+            <h2>Attachments</h2>
+            <div class="attachment-cards">
+                <div class="attachment-card">
+                    <h3>Excavator Attachments</h3>
+                    <p>Trenching buckets, grading buckets, and hydraulic thumbs to match your job.</p>
+                </div>
+                <div class="attachment-card">
+                    <h3>Skid Steer Attachments</h3>
+                    <p>Pallet forks, brush cutters, and augers for added versatility on site.</p>
+                </div>
+                <div class="attachment-card">
+                    <h3>Compaction &amp; Concrete</h3>
+                    <p>Plate compactors, tampers, and concrete tools to finish the work cleanly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Links Section -->
+        <section class="related-links">
+            <h2>Related Links</h2>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Equipment safety basics</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" rel="noopener noreferrer">How to operate a mini excavator</a></li>
+                <li><a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" rel="noopener noreferrer">Skid steer attachment overview</a></li>
+            </ul>
+        </section>
     </div>
 </body>
 </html>
+
+
