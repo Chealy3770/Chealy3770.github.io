@@ -12,17 +12,17 @@
         }
         /* Banner */
         .banner {
-            background: linear-gradient(90deg, #3eaf7c 0%, #33a1fd 100%);
+            background: #ffffff; /* White banner */
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Align image to left */
-            padding: 24px 40px;
+            justify-content: flex-start;
+            padding: 0 40px;
             box-shadow: 0 3px 12px rgba(60,130,200,0.09);
+            height: 140px; /* Banner height */
         }
         .banner-logo {
-            width: 33%; /* About one-third of the banner width */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 100px; /* Limit max height */
+            width: 33vw;    /* One-third of viewport width */
+            height: 100%;   /* Full banner height */
             object-fit: contain;
             border-radius: 8px;
         }
@@ -80,6 +80,13 @@
         }
         /* Responsive */
         @media (max-width: 800px) {
+            .banner {
+                height: 110px;
+                padding: 0 16px;
+            }
+            .banner-logo {
+                width: 50vw; /* Slightly larger on small screens */
+            }
             .main-container {
                 padding: 10px;
             }
