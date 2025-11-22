@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Privacy &amp; Terms | Healy's Equipment Rentals</title>
+    <link rel="icon" type="image/png" href="Healys-Equipment-Rentals-White-Background.png" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f7fa;
+        }
+        .banner {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 3px 12px rgba(60,130,200,0.09);
+            height: 140px;
+        }
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .banner-logo {
+            width: 33vw;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+        .nav-links a {
+            text-decoration: none;
+        }
+        .nav-button {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 1px solid #3eaf7c;
+            background: #ffffff;
+            color: #189063;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, transform 0.1s;
+        }
+        .nav-button.active {
+            background: #3eaf7c;
+            color: #ffffff;
+        }
+        .nav-button:hover {
+            background: #33a1fd;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+        .main-container {
+            max-width: 980px;
+            margin: 32px auto;
+            padding: 24px;
+            background: #fff;
+            box-shadow: 0 6px 32px rgba(40,50,100,0.06);
+            border-radius: 24px;
+        }
+        .section-block {
+            margin-bottom: 28px;
+        }
+        .section-block h2 {
+            margin-top: 0;
+            color: #189063;
+        }
+        .section-block p,
+        .section-block ul {
+            color: #3a3a3a;
+            line-height: 1.5;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #777;
+        }
+        @media (max-width: 800px) {
+            .banner {
+                height: 110px;
+                padding: 0 16px;
+            }
+            .banner-logo {
+                width: 50vw;
+            }
+            .main-container {
+                padding: 10px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="banner-left">
+            <img src="Healys-Equipment-Rentals-White-Background.png" alt="Healy's Equipment Rentals Logo" class="banner-logo" />
+        </div>
+        <nav class="nav-links">
+            <a href="index.html"><button class="nav-button">Rentals</button></a>
+            <a href="about.html"><button class="nav-button">About Us</button></a>
+            <a href="conditions.html"><button class="nav-button active">Privacy &amp; Terms</button></a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <section class="section-block">
+            <h2>Privacy Policy</h2>
+            <p class="note">
+                This is a simple placeholder. For full legal protection, consider having a lawyer review or draft your final policy.
+            </p>
+            <p>
+                Healy's Equipment Rentals respects the privacy of visitors and customers. This website is primarily informational and does not intentionally collect sensitive personal data directly.
+                If contact forms, online booking tools, or third‑party payment services are added in the future, those services may collect information in accordance with their own policies.
+            </p>
+            <ul>
+                <li>Any information voluntarily shared (such as name, phone number, or email) will be used only to respond to rental inquiries or provide requested information.</li>
+                <li>Personal information will not be sold or shared with unrelated third parties except as required to operate the business or comply with the law.</li>
+                <li>Third‑party services (for example, payment processors or embedded videos) may have their own privacy practices.</li>
+            </ul>
+        </section>
+
+        <section class="section-block">
+            <h2>Terms &amp; Conditions of Use</h2>
+            <p>
+                By using this website, you agree that any information shown here is provided as a general guide to available equipment and services and may change at any time without notice.
+                Availability, pricing, and rental terms are confirmed directly at the time of booking.
+            </p>
+            <ul>
+                <li>Use of equipment is subject to separate rental agreements, safety requirements, and verification steps handled offline or through direct communication.</li>
+                <li>All equipment must be operated safely and in accordance with the manufacturer’s instructions and applicable laws.</li>
+                <li>Healy's Equipment Rentals is not responsible for damages arising from misuse of equipment or reliance on outdated information on this site.</li>
+            </ul>
+        </section>
+
+        <section class="section-block">
+            <h2>Changes to This Page</h2>
+            <p>
+                These privacy and terms sections may be updated as the business grows or online features are added.
+                The most current version will always be available on this page, and continued use of the site means acceptance of any updates.
+            </p>
+        </section>
+    </div>
+</body>
+</html>
