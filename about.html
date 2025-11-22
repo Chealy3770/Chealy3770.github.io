@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About Us | Healy's Equipment Rentals</title>
+    <link rel="icon" type="image/png" href="Healys-Equipment-Rentals-White-Background.png" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f7fa;
+        }
+        .banner {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 3px 12px rgba(60,130,200,0.09);
+            height: 140px;
+        }
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .banner-logo {
+            width: 33vw;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+        .nav-links a {
+            text-decoration: none;
+        }
+        .nav-button {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 1px solid #3eaf7c;
+            background: #ffffff;
+            color: #189063;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, transform 0.1s;
+        }
+        .nav-button.active {
+            background: #3eaf7c;
+            color: #ffffff;
+        }
+        .nav-button:hover {
+            background: #33a1fd;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+        .main-container {
+            max-width: 980px;
+            margin: 32px auto;
+            padding: 24px;
+            background: #fff;
+            box-shadow: 0 6px 32px rgba(40,50,100,0.06);
+            border-radius: 24px;
+        }
+        .section-block {
+            margin-bottom: 28px;
+        }
+        .section-block h2 {
+            margin-top: 0;
+            color: #189063;
+        }
+        .section-block p {
+            color: #3a3a3a;
+            line-height: 1.5;
+        }
+        ul {
+            padding-left: 20px;
+            color: #3a3a3a;
+        }
+        @media (max-width: 800px) {
+            .banner {
+                height: 110px;
+                padding: 0 16px;
+            }
+            .banner-logo {
+                width: 50vw;
+            }
+            .main-container {
+                padding: 10px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="banner-left">
+            <img src="Healys-Equipment-Rentals-White-Background.png" alt="Healy's Equipment Rentals Logo" class="banner-logo" />
+        </div>
+        <nav class="nav-links">
+            <a href="index.html"><button class="nav-button">Rentals</button></a>
+            <a href="about.html"><button class="nav-button active">About Us</button></a>
+            <a href="conditions.html"><button class="nav-button">Privacy &amp; Terms</button></a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <section class="section-block">
+            <h2>Who We Are</h2>
+            <p>
+                Healy's Equipment Rentals is a locally owned small business focused on providing reliable, well‑maintained equipment for contractors, homeowners, and DIY projects.
+                The goal is simple: make getting the right machine for the job fast, straightforward, and affordable.
+            </p>
+        </section>
+
+        <section class="section-block">
+            <h2>What We Offer</h2>
+            <ul>
+                <li>Compact equipment for tight job sites and residential work.</li>
+                <li>Landscaping tools for grading, clearing, and lawn projects.</li>
+                <li>Construction gear to support concrete, compaction, and demolition tasks.</li>
+                <li>Attachments to get more versatility from each machine.</li>
+            </ul>
+        </section>
+
+        <section class="section-block">
+            <h2>How We Work</h2>
+            <p>
+                Rentals are structured to keep the process easy: clear daily rates, flexible timeframes, and straightforward pickup or delivery options where available.
+                Every rental starts with a quick conversation to match equipment to the job, making sure customers get what they actually need instead of overspending.
+            </p>
+        </section>
+
+        <section class="section-block">
+            <h2>Contact & Service Area</h2>
+            <p>
+                Healy's Equipment Rentals currently serves local customers in the surrounding region, focusing on projects close enough for dependable service and support.
+                For questions, availability, and current inventory details, please reach out using the contact information listed on the Rentals page.
+            </p>
+        </section>
+    </div>
+</body>
+</html>
