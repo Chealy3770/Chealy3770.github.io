@@ -26,7 +26,7 @@
             gap: 20px;
         }
         .banner-logo {
-            max-height: 100px;   /* fits nicely inside 140px banner */
+            max-height: 120px;   /* a bit bigger but still inside 140px banner */
             width: auto;         /* keep aspect ratio */
             object-fit: contain;
             border-radius: 8px;
@@ -42,15 +42,15 @@
         .nav-button {
             padding: 10px 18px;
             border-radius: 20px;
-            border: 1px solid #3eaf7c;
+            border: 1px solid #eeba00;
             background: #ffffff;
-            color: #189063;
+            color: #eeba00;
             font-size: 0.95em;
             cursor: pointer;
             transition: background 0.15s, color 0.15s, transform 0.1s;
         }
         .nav-button.active {
-            background: #3eaf7c;
+            background: #eeba00;
             color: #ffffff;
         }
         .nav-button:hover {
@@ -70,81 +70,60 @@
         /* Overview section */
         .overview {
             margin-bottom: 32px;
-            border-left: 6px solid #3eaf7c;
+            border-left: 6px solid #eeba00; /* changed to yellow */
             padding-left: 18px;
         }
         .overview h2 {
-            color: #189063;
+            color: #eeba00; /* yellow */
             margin: 0 0 10px 0;
         }
         .overview p {
             font-size: 1.1em;
             color: #3a3a3a;
         }
-        /* Rental breakdown section */
-        .rental-breakdown h2 {
-            color: #2180d7;
+        /* Section titles */
+        .section-title-yellow {
+            color: #eeba00;
+            margin-bottom: 12px;
         }
-        .rental-cards {
+        /* Cards (shared style for rentals and attachments) */
+        .card-row {
             display: flex;
             gap: 28px;
             flex-wrap: wrap;
         }
-        .rental-card {
-            flex: 1 1 260px;
-            background: linear-gradient(135deg, #e1f8ff 0%, #aeeff7 100%);
-            border-radius: 16px;
-            padding: 24px 18px;
-            margin-bottom: 18px;
-            box-shadow: 0 2px 16px rgba(30,140,240,0.08);
-            transition: transform 0.2s;
-        }
-        .rental-card:hover {
-            transform: translateY(-6px) scale(1.04);
-            box-shadow: 0 10px 24px rgba(60,130,200,0.15);
-        }
-        .rental-card h3 {
-            margin-top: 0;
-            color: #147aae;
-        }
-        .rental-card ul {
-            padding-left: 20px;
-        }
-        /* Attachments section */
-        .attachments {
-            margin-top: 32px;
-        }
-        .attachments h2 {
-            color: #2180d7;
-        }
-        .attachment-cards {
-            display: flex;
-            gap: 28px;
-            flex-wrap: wrap;
-        }
-        .attachment-card {
+        .info-card {
             flex: 1 1 260px;
             background: #f7f9ff;
             border-radius: 16px;
             padding: 20px 18px;
             margin-bottom: 18px;
             box-shadow: 0 2px 12px rgba(40,50,100,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .attachment-card h3 {
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(60,130,200,0.15);
+        }
+        .info-card h3 {
             margin-top: 0;
             color: #324b81;
         }
-        .attachment-card p {
+        .info-card p,
+        .info-card ul {
             margin: 6px 0 0;
             color: #4d4d4d;
             font-size: 0.95em;
+        }
+        .info-card ul {
+            padding-left: 20px;
         }
         /* Related links section */
         .related-links {
             margin-top: 32px;
         }
         .related-links h2 {
-            color: #2180d7;
+            color: #eeba00;
         }
         .related-links ul {
             list-style-type: none;
@@ -167,13 +146,12 @@
                 padding: 0 16px;
             }
             .banner-logo {
-                max-height: 70px; /* slightly smaller on mobile */
+                max-height: 80px; /* slightly smaller on mobile */
             }
             .main-container {
                 padding: 10px;
             }
-            .rental-cards,
-            .attachment-cards {
+            .card-row {
                 flex-direction: column;
                 gap: 14px;
             }
@@ -187,7 +165,9 @@
 <body>
     <header class="banner">
         <div class="banner-left">
-            <img src="Healys-Equipment-Rentals-White-Background.png" alt="Healy's Equipment Rentals Logo" class="banner-logo" />
+            <img src="Healys-Equipment-Rentals-White-Background.png"
+                 alt="Healy's Equipment Rentals Logo"
+                 class="banner-logo" />
         </div>
         <nav class="nav-links">
             <a href="index.html"><button class="nav-button active">Rentals</button></a>
@@ -197,6 +177,7 @@
     </header>
 
     <div class="main-container">
+        <!-- Overview Section -->
         <section class="overview">
             <h2>Overview</h2>
             <p>
@@ -204,10 +185,11 @@
             </p>
         </section>
 
+        <!-- Rental Breakdown Section (matched formatting to attachments) -->
         <section class="rental-breakdown">
-            <h2>Rental Breakdown</h2>
-            <div class="rental-cards">
-                <div class="rental-card">
+            <h2 class="section-title-yellow">Rental Breakdown</h2>
+            <div class="card-row">
+                <div class="info-card">
                     <h3>Compact Equipment</h3>
                     <ul>
                         <li>Mini excavators</li>
@@ -216,7 +198,7 @@
                         <li>Rates: From $200/day</li>
                     </ul>
                 </div>
-                <div class="rental-card">
+                <div class="info-card">
                     <h3>Landscaping Tools</h3>
                     <ul>
                         <li>Sod cutters</li>
@@ -225,7 +207,7 @@
                         <li>Rates: From $40/day</li>
                     </ul>
                 </div>
-                <div class="rental-card">
+                <div class="info-card">
                     <h3>Construction Gear</h3>
                     <ul>
                         <li>Concrete saws</li>
@@ -237,24 +219,26 @@
             </div>
         </section>
 
+        <!-- Attachments Section -->
         <section class="attachments">
-            <h2>Attachments</h2>
-            <div class="attachment-cards">
-                <div class="attachment-card">
+            <h2 class="section-title-yellow">Attachments</h2>
+            <div class="card-row">
+                <div class="info-card">
                     <h3>Excavator Attachments</h3>
                     <p>Trenching buckets, grading buckets, and hydraulic thumbs to match your job.</p>
                 </div>
-                <div class="attachment-card">
+                <div class="info-card">
                     <h3>Skid Steer Attachments</h3>
                     <p>Pallet forks, brush cutters, and augers for added versatility on site.</p>
                 </div>
-                <div class="attachment-card">
+                <div class="info-card">
                     <h3>Compaction &amp; Concrete</h3>
                     <p>Plate compactors, tampers, and concrete tools to finish the work cleanly.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Related Links Section -->
         <section class="related-links">
             <h2>Related Links</h2>
             <ul>
