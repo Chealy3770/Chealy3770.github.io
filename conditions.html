@@ -25,10 +25,11 @@
             gap: 20px;
         }
         .banner-logo {
-            width: 33vw;
-            height: 100%;
+            max-height: 120px;
+            width: auto;
             object-fit: contain;
             border-radius: 8px;
+            display: block;
         }
         .nav-links {
             display: flex;
@@ -40,20 +41,20 @@
         .nav-button {
             padding: 10px 18px;
             border-radius: 20px;
-            border: 1px solid #3eaf7c;
+            border: 1px solid #eeba00;
             background: #ffffff;
-            color: #189063;
+            color: #000000;
             font-size: 0.95em;
             cursor: pointer;
             transition: background 0.15s, color 0.15s, transform 0.1s;
         }
         .nav-button.active {
-            background: #3eaf7c;
-            color: #ffffff;
+            background: #eeba00;
+            color: #000000;
         }
         .nav-button:hover {
-            background: #33a1fd;
-            color: #ffffff;
+            background: #f2d15c;
+            color: #000000;
             transform: translateY(-1px);
         }
         .main-container {
@@ -69,19 +70,58 @@
         }
         .section-block h2 {
             margin-top: 0;
-            color: #189063;
+            color: #eeba00;
         }
         .section-block p,
         .section-block ul {
             color: #3a3a3a;
             line-height: 1.5;
+            font-size: 0.98em;
         }
         ul {
             padding-left: 20px;
         }
         .note {
             font-size: 0.9em;
-            color: #777;
+            color: #777777;
+        }
+        .site-footer {
+            margin-top: 32px;
+            background: #ffffff;
+            border-top: 1px solid #dde2ea;
+            padding: 18px 24px;
+            font-size: 0.9em;
+            color: #4a4a4a;
+        }
+        .footer-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+        }
+        .footer-left,
+        .footer-right {
+            flex: 1 1 220px;
+        }
+        .footer-left h4,
+        .footer-right h4 {
+            margin: 0 0 6px 0;
+            font-size: 0.98em;
+            color: #000000;
+        }
+        .footer-link {
+            color: #147aae;
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        .footer-meta {
+            margin-top: 8px;
+            font-size: 0.85em;
+            color: #777777;
         }
         @media (max-width: 800px) {
             .banner {
@@ -89,7 +129,7 @@
                 padding: 0 16px;
             }
             .banner-logo {
-                width: 50vw;
+                max-height: 80px;
             }
             .main-container {
                 padding: 10px;
@@ -98,13 +138,18 @@
                 flex-wrap: wrap;
                 justify-content: flex-end;
             }
+            .footer-inner {
+                padding: 0;
+            }
         }
     </style>
 </head>
 <body>
     <header class="banner">
         <div class="banner-left">
-            <img src="Healys-Equipment-Rentals-White-Background.png" alt="Healy's Equipment Rentals Logo" class="banner-logo" />
+            <img src="Healys-Equipment-Rentals-White-Background.png"
+                 alt="Healy's Equipment Rentals Logo"
+                 class="banner-logo" />
         </div>
         <nav class="nav-links">
             <a href="index.html"><button class="nav-button">Rentals</button></a>
@@ -151,5 +196,34 @@
             </p>
         </section>
     </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <h4>Contact</h4>
+                <p>
+                    Email:
+                    <a class="footer-link" href="mailto:info@healysequipmentrentals.com">
+                        info@healysequipmentrentals.com
+                    </a><br />
+                    Location: Mechanicsburg, PA
+                </p>
+            </div>
+            <div class="footer-right">
+                <h4>Site Info</h4>
+                <p>
+                    <a class="footer-link" href="conditions.html">Privacy Policy &amp; Terms</a>
+                </p>
+                <p class="footer-meta">
+                    &copy; <span id="year">2025</span> Healy's Equipment Rentals. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
+
