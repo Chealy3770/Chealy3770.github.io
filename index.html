@@ -44,14 +44,14 @@
             border-radius: 20px;
             border: 1px solid #eeba00;
             background: #ffffff;
-            color: #000000; /* black text */
+            color: #000000;
             font-size: 0.95em;
             cursor: pointer;
             transition: background 0.15s, color 0.15s, transform 0.1s;
         }
         .nav-button.active {
             background: #eeba00;
-            color: #000000; /* black even when active */
+            color: #000000;
         }
         .nav-button:hover {
             background: #f2d15c;
@@ -98,7 +98,6 @@
         .overview-sub ul {
             padding-left: 20px;
         }
-
         /* Quick contact row (email + form) */
         .quick-contact-row {
             display: flex;
@@ -130,13 +129,11 @@
         .quick-card a:hover {
             text-decoration: underline;
         }
-
         /* Section titles */
         .section-title-yellow {
             color: #eeba00;
             margin-bottom: 12px;
         }
-
         /* Cards (shared style for rentals and attachments) */
         .card-row {
             display: flex;
@@ -156,7 +153,6 @@
             transform: translateY(-4px);
             box-shadow: 0 8px 22px rgba(60,130,200,0.15);
         }
-
         /* Image area inside cards */
         .card-image {
             width: 100%;
@@ -175,13 +171,19 @@
         .card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* crop to fill nicely */
+            object-fit: cover;
             display: block;
         }
-
         .info-card h3 {
             margin-top: 0;
-            color: #000000; /* black header text */
+            color: #000000;
+        }
+        .info-card h3 span.subline {
+            display: block;
+            font-size: 0.9em;
+            font-weight: normal;
+            color: #555555;
+            margin-top: 2px;
         }
         .info-card p,
         .info-card ul {
@@ -192,13 +194,12 @@
         .info-card ul {
             padding-left: 20px;
         }
-
         /* Related links section */
         .related-links {
             margin-top: 32px;
         }
         .related-links h2 {
-            color: #000000; /* black header */
+            color: #000000;
         }
         .related-links ul {
             list-style-type: none;
@@ -214,7 +215,6 @@
         .related-links a:hover {
             text-decoration: underline;
         }
-
         /* Footer */
         .site-footer {
             margin-top: 32px;
@@ -254,7 +254,6 @@
             font-size: 0.85em;
             color: #777777;
         }
-
         /* Responsive */
         @media (max-width: 800px) {
             .banner {
@@ -318,8 +317,9 @@
                     <p>
                         Prefer a quick form? Use the online request form to share project details and desired dates.
                         <br />
-                        <!-- Replace the # with your actual Google Form link -->
-                        <a href="#" target="https://forms.gle/RYYpLH8cjsZ2Trod9" rel="noopener noreferrer">Open rental request form</a>
+                        <a href="https://forms.gle/RYYpLH8cjsZ2Trod9" target="_blank" rel="noopener noreferrer">
+                            Open rental request form
+                        </a>
                     </p>
                 </div>
             </div>
@@ -350,10 +350,12 @@
             <div class="card-row">
                 <div class="info-card">
                     <div class="card-image">
-                        <!-- Example HTML for image; replace src with your real image file -->
                         <img src="EC18 Stock Image Center.png" alt="Compact excavator delivered to jobsite">
                     </div>
-                    <h3>Compact Excavator (Delivery)</h3>
+                    <h3>
+                        Compact Excavator
+                        <span class="subline">(Delivery)</span>
+                    </h3>
                     <ul>
                         <li>Volvo Electric EC18</li>
                         <li>Rental Rate: From $200/day</li>
@@ -364,7 +366,10 @@
                     <div class="card-image">
                         <img src="EC18 Stock Image Center.png" alt="Compact excavator ready for customer pickup">
                     </div>
-                    <h3>Compact Excavator (Pickup)</h3>
+                    <h3>
+                        Compact Excavator
+                        <span class="subline">(Pickup)</span>
+                    </h3>
                     <ul>
                         <li>Volvo Electric EC18</li>
                         <li>Rental Rate: From $200/day</li>
@@ -375,7 +380,10 @@
                     <div class="card-image">
                         <img src="Trailer Plus EC18.png" alt="Compact excavator loaded on rental trailer">
                     </div>
-                    <h3>Compact Excavator + Trailer (Pickup)</h3>
+                    <h3>
+                        Compact Excavator + Trailer
+                        <span class="subline">(Pickup)</span>
+                    </h3>
                     <ul>
                         <li>Volvo Electric EC18</li>
                         <li>Rental Rate: From $250/day</li>
@@ -391,9 +399,12 @@
             <div class="card-row">
                 <div class="info-card">
                     <div class="card-image">
-                        <img src="12 Inch Bucket.jpg" alt="Excavator buckets and thumb attachments">
+                        <img src="12 Inch Bucket.jpg" alt="12 inch excavator bucket">
                     </div>
-                    <h3>12 Inch Bucket</h3>
+                    <h3>
+                        12 Inch Bucket
+                        <span class="subline">(Standard)</span>
+                    </h3>
                     <ul>
                         <li>12" .042 yd trenching bucket (3 teeth)</li>
                         <li>Rental Rate: Default Attachment</li>
@@ -401,9 +412,12 @@
                 </div>
                 <div class="info-card">
                     <div class="card-image">
-                        <img src="12 Inch Bucket.jpg" alt="Skid steer forks and brush cutter attachments">
+                        <img src="12 Inch Bucket.jpg" alt="24 inch excavator bucket">
                     </div>
-                    <h3>24 Inch Bucket</h3>
+                    <h3>
+                        24 Inch Bucket
+                        <span class="subline">(Upgrade)</span>
+                    </h3>
                     <ul>
                         <li>24" .102 yd trenching bucket (5 teeth)</li>
                         <li>Rental Rate: From $10/day</li>
@@ -411,9 +425,12 @@
                 </div>
                 <div class="info-card">
                     <div class="card-image">
-                        <img src="12 Inch Bucket.jpg" alt="Compaction plates and concrete finishing tools">
+                        <img src="12 Inch Bucket.jpg" alt="12 and 24 inch buckets bundle">
                     </div>
-                    <h3>12 &amp; 24 Inch Bucket</h3>
+                    <h3>
+                        12 &amp; 24 Inch Bucket
+                        <span class="subline">(Bundle)</span>
+                    </h3>
                     <ul>
                         <li>12" .042 yd trenching bucket (3 teeth)</li>
                         <li>24" .102 yd trenching bucket (5 teeth)</li>
@@ -460,18 +477,7 @@
     </footer>
 
     <script>
-        // Simple script to always show current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
