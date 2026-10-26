@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Volvo EC18 Compact Excavator | Healy's Equipment Rentals</title>
+<link rel="icon" type="image/png" href="../../Healys-Equipment-Rentals-White-Background.png" />
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f3f7fa;
+    color: #222;
+}
+
+/* Banner */
+.banner {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 3px 12px rgba(60,130,200,0.09);
+    height: 140px;
+}
+.banner-left { display: flex; align-items: center; gap: 20px; }
+.banner-logo { max-height: 120px; width: auto; object-fit: contain; border-radius: 8px; }
+
+/* Nav */
+.nav-links { display: flex; gap: 12px; }
+.nav-links a { text-decoration: none; }
+.nav-button {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid #eeba00;
+    background: #ffffff;
+    color: #000;
+    font-size: 0.95em;
+    cursor: pointer;
+}
+.nav-button.active { background: #eeba00; }
+
+/* Main container */
+.main-container {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 24px;
+    background: #fff;
+    box-shadow: 0 6px 32px rgba(40,50,100,0.06);
+    border-radius: 24px;
+}
+
+/* Layout: image + details */
+.product-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+/* Image carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    background: #f6f7f8;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(40,50,100,0.04);
+}
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+}
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; }
+
+/* Details box */
+.details-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(40,50,100,0.04);
+}
+.details-box h2 { margin-top: 0; color: #eeba00; }
+
+/* Rate table */
+.rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.rate-table th, .rate-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.rate-table th {
+    background: #fff3c4;
+    text-align: left;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 32px;
+    background: #ffffff;
+    border-top: 1px solid #dde2ea;
+    padding: 18px 24px;
+    font-size: 0.9em;
+    color: #4a4a4a;
+}
+.footer-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+}
+</style>
+</head>
+
+<body>
+
+<header class="banner">
+    <div class="banner-left">
+        <img src="../../Healys-Equipment-Rentals-White-Background.png" class="banner-logo">
+    </div>
+    <nav class="nav-links">
+        <a href="/rentals/"><button class="nav-button active">Rentals</button></a>
+        <a href="/about/"><button class="nav-button">About Us</button></a>
+        <a href="/privacy/"><button class="nav-button">Privacy & Terms</button></a>
+    </nav>
+</header>
+
+<div class="main-container">
+
+    <div class="product-layout">
+
+        <!-- IMAGE CAROUSEL -->
+        <div class="carousel" id="carousel">
+            <img id="carousel-img" src="../../EC18 Main Image.png" alt="Volvo EC18 Excavator">
+            <button class="prev" onclick="prevImg()">‹</button>
+            <button class="next" onclick="nextImg()">›</button>
+        </div>
+
+        <!-- DETAILS -->
+        <div class="details-box">
+            <h2>Volvo EC18 Compact Excavator</h2>
+            <p>Fully electric compact excavator with powerful digging capability and quiet operation.</p>
+
+            <ul>
+                <li>Operating Weight: 4,321 lbs</li>
+                <li>Battery: Lithium-ion</li>
+                <li>Attachments: 12" bucket, 24" bucket</li>
+                <li>Zero emissions</li>
+                <li>Low noise</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- RATE TABLE -->
+    <h3>Rental Rates</h3>
+    <table class="rate-table">
+        <tr><th>Period</th><th>Rate</th></tr>
+        <tr><td>Daily</td><td>$275</td></tr>
+        <tr><td>Weekend</td><td>—</td></tr>
+        <tr><td>Weekly</td><td>—</td></tr>
+        <tr><td>Monthly</td><td>—</td></tr>
+    </table>
+
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <h4>Contact</h4>
+            Phone: <a href="tel:7172418152">717‑241‑8152</a><br>
+            Email: <a href="mailto:info@healysequipmentrentals.com">info@healysequipmentrentals.com</a><br>
+            Location: Mechanicsburg, PA
+        </div>
+        <div>
+            <h4>Site Info</h4>
+            <a href="/privacy/">Privacy Policy & Terms</a>
+            <p>&copy; 2026 Healy's Equipment Rentals</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+let images = [
+    "../../EC18 Main Image.png"
+];
+let index = 0;
+
+function nextImg() {
+    index = (index + 1) % images.length;
+    document.getElementById("carousel-img").src = images[index];
+}
+function prevImg() {
+    index = (index - 1 + images.length) % images.length;
+    document.getElementById("carousel-img").src = images[index];
+}
+</script>
+
+</body>
+</html>
 
