@@ -1,211 +1,402 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rentals — Healy Equipment Rentals</title>
-  <meta name="description" content="Healy Equipment Rentals — reliable equipment for construction, landscaping, and events. Browse featured rentals and view full product details." />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17979222323"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <!-- IMPORTANT: this page intentionally does NOT redefine your global colors or root variables.
-       It assumes your main site stylesheet is already linked and will control colors/typography.
-       If your site uses a different path for the main stylesheet, keep that link as-is. -->
-  <link rel="stylesheet" href="/assets/css/main.css">
+      gtag('config', 'AW-17979222323');
+    </script>
 
-  <!-- Scoped styles only for the rentals overview (won't override :root or global rules) -->
-  <style>
-    /* Scope everything under .rentals-overview to avoid changing site-wide styles */
-    .rentals-overview { padding: 36px 0; }
-    .rentals-overview .rentals-header { text-align:center; margin-bottom:22px; }
-    .rentals-overview .section-title { font-size:28px; margin:0 0 6px; }
-    .rentals-overview .section-subtitle { margin:0; font-size:15px; color:inherit; opacity:.75; }
+    <meta charset="UTF-8" />
+    <title>Rentals | Healy's Equipment Rentals</title>
+    <link rel="icon" type="image/png" href="../Healys-Equipment-Rentals-White-Background.png" />
 
-    .rentals-overview .rental-grid {
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      align-items:stretch;
-    }
+    <style>
+        /* Base page styles copied from your provided template so this page matches exactly */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f7fa;
+            color: #222;
+        }
 
-    .rentals-overview .rental-card {
-      background:inherit;
-      border-radius:10px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition:transform .18s ease, box-shadow .18s ease;
-      /* Use subtle border/shadow only if your site doesn't already style .card */
-      border:1px solid rgba(0,0,0,0.04);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-    }
-    .rentals-overview .rental-card:focus-within,
-    .rentals-overview .rental-card:hover {
-      transform:translateY(-6px);
-      box-shadow:0 12px 30px rgba(0,0,0,0.08);
-    }
+        /* Header / banner */
+        .banner {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 3px 12px rgba(60,130,200,0.09);
+            height: 140px;
+        }
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .banner-logo {
+            max-height: 120px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+        .nav-links a { text-decoration: none; }
+        .nav-button {
+            padding: 10px 18px;
+            border-radius: 20px;
+            border: 1px solid #eeba00;
+            background: #ffffff;
+            color: #000000;
+            font-size: 0.95em;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s, transform 0.1s;
+        }
+        .nav-button.active {
+            background: #eeba00;
+            color: #000000;
+        }
+        .nav-button:hover {
+            background: #f2d15c;
+            color: #000000;
+            transform: translateY(-1px);
+        }
 
-    .rentals-overview .rental-link { display:flex; flex-direction:column; color:inherit; text-decoration:none; height:100%; }
-    .rentals-overview .rental-media { width:100%; height:180px; overflow:hidden; background:#f6f7f8; display:flex; align-items:center; justify-content:center; }
-    .rentals-overview .rental-media img { width:100%; height:100%; object-fit:cover; display:block; }
+        /* Main container (card look) */
+        .main-container {
+            max-width: 980px;
+            margin: 32px auto;
+            padding: 24px;
+            background: #fff;
+            box-shadow: 0 6px 32px rgba(40,50,100,0.06);
+            border-radius: 24px;
+        }
 
-    .rentals-overview .rental-body { padding:18px; display:flex; flex-direction:column; gap:10px; }
-    .rentals-overview .rental-title { font-size:18px; margin:0; }
-    .rentals-overview .rental-lead { margin:0; font-size:14px; color:inherit; opacity:.8; }
-    .rentals-overview .rental-features { margin:0; padding-left:18px; font-size:13px; color:inherit; opacity:.8; }
-    .rentals-overview .rental-features li { margin-bottom:6px; }
-    .rentals-overview .rental-cta { margin-top:auto; font-weight:600; color:inherit; opacity:.95; }
+        .section-block {
+            margin-bottom: 28px;
+        }
+        .section-block h2 {
+            margin-top: 0;
+            color: #eeba00;
+        }
+        .section-block p,
+        .section-block ul {
+            color: #3a3a3a;
+            line-height: 1.5;
+            font-size: 0.98em;
+        }
+        ul { padding-left: 20px; }
 
-    .rentals-overview .rental-badge {
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:600;
-      /* Use currentColor with slight background so it inherits your brand color */
-      color:currentColor;
-      background:rgba(0,0,0,0.04);
-      opacity:.95;
-    }
+        .note {
+            font-size: 0.9em;
+            color: #777777;
+        }
 
-    /* Responsive */
-    @media (max-width:980px){ .rentals-overview .rental-grid{grid-template-columns:repeat(2,1fr);} }
-    @media (max-width:640px){ .rentals-overview .rental-grid{grid-template-columns:1fr;} .rentals-overview .rental-media{height:220px;} .rentals-overview .section-title{font-size:22px;} }
+        /* Footer */
+        .site-footer {
+            margin-top: 32px;
+            background: #ffffff;
+            border-top: 1px solid #dde2ea;
+            padding: 18px 24px;
+            font-size: 0.9em;
+            color: #4a4a4a;
+        }
+        .footer-inner {
+            max-width: 980px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+        }
+        .footer-left,
+        .footer-right {
+            flex: 1 1 220px;
+        }
+        .footer-left h4,
+        .footer-right h4 {
+            margin: 0 0 6px 0;
+            font-size: 0.98em;
+            color: #000000;
+        }
+        .footer-link {
+            color: #147aae;
+            text-decoration: none;
+        }
+        .footer-link:hover { text-decoration: underline; }
+        .footer-meta {
+            margin-top: 8px;
+            font-size: 0.85em;
+            color: #777777;
+        }
 
-    /* Accessibility focus ring for keyboard users */
-    .rentals-overview .rental-link:focus { outline:3px solid rgba(0,0,0,0.08); outline-offset:3px; border-radius:6px; }
-  </style>
+        /* ===== Rentals grid (scoped to this page) =====
+           These styles are intentionally scoped and conservative so they inherit your site colors.
+        */
+        .rentals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 8px;
+        }
+
+        .rental-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 6px 18px rgba(40,50,100,0.04);
+            transition: transform .16s ease, box-shadow .16s ease;
+            min-height: 320px;
+        }
+        .rental-card:hover,
+        .rental-card:focus-within {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 36px rgba(40,50,100,0.08);
+        }
+
+        .rental-media {
+            height: 180px;
+            background: #f6f7f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .rental-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .rental-body {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: #222;
+        }
+        .rental-title-row {
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        .rental-title {
+            font-size: 18px;
+            margin: 0;
+            color: #111;
+        }
+        .rental-badge {
+            display:inline-block;
+            padding:6px 10px;
+            border-radius:999px;
+            font-size:13px;
+            font-weight:600;
+            color:#000;
+            background:#fff3c4; /* subtle yellow to match your brand */
+            border:1px solid rgba(0,0,0,0.04);
+        }
+        .rental-lead {
+            margin:0;
+            color:#3a3a3a;
+            font-size:14px;
+            line-height:1.4;
+        }
+        .rental-features {
+            margin:0;
+            padding-left:18px;
+            color:#3a3a3a;
+            font-size:13px;
+        }
+        .rental-features li { margin-bottom:6px; }
+
+        .rental-cta {
+            margin-top:auto;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            font-weight:700;
+            color:#0b66a3; /* link color consistent with footer link */
+            text-decoration:none;
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .rentals-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 640px) {
+            .rentals-grid { grid-template-columns: 1fr; }
+            .rental-media { height: 220px; }
+            .banner { height: 110px; padding: 0 16px; }
+            .banner-logo { max-height: 80px; }
+            .main-container { padding: 10px; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Keep your original header/navigation exactly as it is on the rest of the site -->
-  <header class="site-header">
-    <div class="site-container" style="display:flex;align-items:center;gap:18px;">
-      <a class="site-title" href="/">Healy Equipment Rentals</a>
-      <!-- your original nav should remain here -->
+<header class="banner">
+    <div class="banner-left">
+        <img src="../Healys-Equipment-Rentals-White-Background.png"
+             alt="Healy's Equipment Rentals Logo"
+             class="banner-logo" />
     </div>
-  </header>
 
-  <main>
-    <div class="site-container">
-      <nav aria-label="Breadcrumb" style="font-size:13px;color:inherit;opacity:.8;margin-bottom:12px;">
-        <a href="/" style="color:inherit;text-decoration:none;opacity:.8;">Home</a> &nbsp;/&nbsp; <span>Rentals</span>
-      </nav>
+    <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/rentals/"><button class="nav-button active" aria-current="page">Rentals</button></a>
+        <a href="/about/"><button class="nav-button">About Us</button></a>
+        <a href="/privacy/"><button class="nav-button">Privacy &amp; Terms</button></a>
+    </nav>
+</header>
 
-      <!-- ====== Rentals Overview (REPLACE only this section if you prefer) ====== -->
-      <section class="rentals-overview" id="rentals-overview" aria-labelledby="rentals-heading">
-        <header class="rentals-header">
-          <h2 id="rentals-heading" class="section-title">Featured Rentals</h2>
-          <p class="section-subtitle">Top equipment for your project — reliable, inspected, and ready to go.</p>
-        </header>
+<div class="main-container" role="main" aria-labelledby="rentals-heading">
+    <section class="section-block">
+        <h2 id="rentals-heading">Our Rentals</h2>
+        <p>
+            We keep a curated selection of reliable equipment ready for your job. Click any item to view full specifications, availability, and rental terms.
+        </p>
+    </section>
 
-        <div class="rental-grid" role="list">
-          <!-- Card 1 -->
-          <article class="rental-card" role="listitem" aria-labelledby="rental-1-title">
-            <a class="rental-link" href="/rentals/compact-excavator.html" aria-describedby="rental-1-desc">
-              <div class="rental-media" aria-hidden="true">
-                <img src="/assets/images/compact-excavator.jpg" alt="Compact Excavator on site" loading="lazy">
-              </div>
-              <div class="rental-body">
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <h3 id="rental-1-title" class="rental-title">Compact Excavator</h3>
-                  <span class="rental-badge">Daily from $120</span>
-                </div>
-                <p id="rental-1-desc" class="rental-lead">Powerful digging in tight spaces with low ground pressure — ideal for landscaping and small site work.</p>
-                <ul class="rental-features" aria-hidden="true">
-                  <li>1.5 ton class; easy transport</li>
-                  <li>Quick coupler ready for attachments</li>
-                  <li>Fuel efficient diesel engine</li>
-                </ul>
-                <span class="rental-cta" aria-hidden="true">View details →</span>
-              </div>
-            </a>
-          </article>
+    <!-- ===== Featured product cards (three boxes) ===== -->
+    <section class="section-block" aria-labelledby="featured-heading">
+        <h2 id="featured-heading" style="color:#000;margin-bottom:8px;">Featured Equipment</h2>
 
-          <!-- Card 2 -->
-          <article class="rental-card" role="listitem" aria-labelledby="rental-2-title">
-            <a class="rental-link" href="/rentals/mini-skid-steer.html" aria-describedby="rental-2-desc">
-              <div class="rental-media" aria-hidden="true">
-                <img src="/assets/images/mini-skid-steer.jpg" alt="Mini Skid Steer loader" loading="lazy">
-              </div>
-              <div class="rental-body">
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <h3 id="rental-2-title" class="rental-title">Mini Skid Steer</h3>
-                  <span class="rental-badge">Daily from $95</span>
-                </div>
-                <p id="rental-2-desc" class="rental-lead">Compact, nimble loader for landscaping, grading, and site cleanup — many attachments available.</p>
-                <ul class="rental-features" aria-hidden="true">
-                  <li>Multiple attachments: bucket, auger, forks</li>
-                  <li>Low ground disturbance</li>
-                  <li>Operator-friendly controls</li>
-                </ul>
-                <span class="rental-cta" aria-hidden="true">View details →</span>
-              </div>
-            </a>
-          </article>
+        <div class="rentals-grid" role="list">
+            <!-- Card 1 -->
+            <article class="rental-card" role="listitem" aria-labelledby="rental-1-title">
+                <a href="/rentals/compact-excavator.html" style="color:inherit;text-decoration:none;display:flex;flex-direction:column;height:100%;" class="rental-link" aria-describedby="rental-1-desc">
+                    <div class="rental-media" aria-hidden="true">
+                        <img src="/assets/images/compact-excavator.jpg" alt="Compact Excavator" loading="lazy">
+                    </div>
+                    <div class="rental-body">
+                        <div class="rental-title-row">
+                            <h3 id="rental-1-title" class="rental-title">Compact Excavator</h3>
+                            <span class="rental-badge">Daily from $120</span>
+                        </div>
+                        <p id="rental-1-desc" class="rental-lead">Powerful digging in tight spaces with low ground pressure — ideal for landscaping and small site work.</p>
+                        <ul class="rental-features" aria-hidden="true">
+                            <li>1.5 ton class; easy transport</li>
+                            <li>Quick coupler ready for attachments</li>
+                            <li>Fuel efficient diesel engine</li>
+                        </ul>
+                        <span class="rental-cta" aria-hidden="true">View details →</span>
+                    </div>
+                </a>
+            </article>
 
-          <!-- Card 3 -->
-          <article class="rental-card" role="listitem" aria-labelledby="rental-3-title">
-            <a class="rental-link" href="/rentals/portable-generator.html" aria-describedby="rental-3-desc">
-              <div class="rental-media" aria-hidden="true">
-                <img src="/assets/images/portable-generator.jpg" alt="Portable generator on trailer" loading="lazy">
-              </div>
-              <div class="rental-body">
-                <div style="display:flex;align-items:center;gap:10px;">
-                  <h3 id="rental-3-title" class="rental-title">Portable Generator</h3>
-                  <span class="rental-badge">Daily from $65</span>
-                </div>
-                <p id="rental-3-desc" class="rental-lead">Reliable power on site with quiet operation and fuel efficiency — perfect for events and remote work.</p>
-                <ul class="rental-features" aria-hidden="true">
-                  <li>5 kW continuous output</li>
-                  <li>Low-noise enclosure</li>
-                  <li>On-site delivery available</li>
-                </ul>
-                <span class="rental-cta" aria-hidden="true">View details →</span>
-              </div>
-            </a>
-          </article>
+            <!-- Card 2 -->
+            <article class="rental-card" role="listitem" aria-labelledby="rental-2-title">
+                <a href="/rentals/mini-skid-steer.html" style="color:inherit;text-decoration:none;display:flex;flex-direction:column;height:100%;" class="rental-link" aria-describedby="rental-2-desc">
+                    <div class="rental-media" aria-hidden="true">
+                        <img src="/assets/images/mini-skid-steer.jpg" alt="Mini Skid Steer" loading="lazy">
+                    </div>
+                    <div class="rental-body">
+                        <div class="rental-title-row">
+                            <h3 id="rental-2-title" class="rental-title">Mini Skid Steer</h3>
+                            <span class="rental-badge">Daily from $95</span>
+                        </div>
+                        <p id="rental-2-desc" class="rental-lead">Compact, nimble loader for landscaping, grading, and site cleanup — many attachments available.</p>
+                        <ul class="rental-features" aria-hidden="true">
+                            <li>Multiple attachments: bucket, auger, forks</li>
+                            <li>Low ground disturbance</li>
+                            <li>Operator-friendly controls</li>
+                        </ul>
+                        <span class="rental-cta" aria-hidden="true">View details →</span>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="rental-card" role="listitem" aria-labelledby="rental-3-title">
+                <a href="/rentals/portable-generator.html" style="color:inherit;text-decoration:none;display:flex;flex-direction:column;height:100%;" class="rental-link" aria-describedby="rental-3-desc">
+                    <div class="rental-media" aria-hidden="true">
+                        <img src="/assets/images/portable-generator.jpg" alt="Portable Generator" loading="lazy">
+                    </div>
+                    <div class="rental-body">
+                        <div class="rental-title-row">
+                            <h3 id="rental-3-title" class="rental-title">Portable Generator</h3>
+                            <span class="rental-badge">Daily from $65</span>
+                        </div>
+                        <p id="rental-3-desc" class="rental-lead">Reliable power on site with quiet operation and fuel efficiency — perfect for events and remote work.</p>
+                        <ul class="rental-features" aria-hidden="true">
+                            <li>5 kW continuous output</li>
+                            <li>Low-noise enclosure</li>
+                            <li>On-site delivery available</li>
+                        </ul>
+                        <span class="rental-cta" aria-hidden="true">View details →</span>
+                    </div>
+                </a>
+            </article>
         </div>
-      </section>
-      <!-- ====== End rentals overview ====== -->
+    </section>
 
-      <!-- Keep your original CTA/contact area exactly as it was -->
-      <section style="margin-top:28px;padding:18px;border-top:1px solid rgba(0,0,0,0.04);">
-        <p style="margin:0;color:inherit;opacity:.8;font-size:14px;">Need help choosing equipment or want a custom quote? <a href="/contact/" style="font-weight:600;text-decoration:none;color:inherit;">Contact us</a>.</p>
-      </section>
+    <!-- Optional short contact CTA -->
+    <section class="section-block">
+        <h2 style="color:#000;margin-bottom:8px;">Need help choosing?</h2>
+        <p class="note">If you’re unsure which machine fits your job, call us or request a quote and we’ll recommend the right equipment and delivery options.</p>
+        <p style="margin-top:12px;">
+            Phone: <a class="footer-link" href="tel:7172418152">717‑241‑8152</a>
+            &nbsp; • &nbsp;
+            Email: <a class="footer-link" href="mailto:info@healysequipmentrentals.com">info@healysequipmentrentals.com</a>
+        </p>
+    </section>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-left">
+            <h4>Contact</h4>
+            <p>
+                Phone: <a class="footer-link" href="tel:7172418152">717‑241‑8152</a><br />
+                Email:
+                <a class="footer-link" href="mailto:info@healysequipmentrentals.com">
+                    info@healysequipmentrentals.com
+                </a><br />
+                Location: Mechanicsburg, PA
+            </p>
+        </div>
+        <div class="footer-right">
+            <h4>Site Info</h4>
+            <p>
+                <a class="footer-link" href="/privacy/">Privacy Policy &amp; Terms</a>
+            </p>
+            <p class="footer-meta">
+                &copy; <span id="year">2026</span> Healy's Equipment Rentals. All rights reserved.
+            </p>
+        </div>
     </div>
-  </main>
+</footer>
 
-  <!-- Keep your original footer exactly as it was on the site -->
-  <footer style="margin-top:40px;padding:18px 0;border-top:1px solid rgba(0,0,0,0.04);">
-    <div class="site-container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
-      <small style="opacity:.8;">© <span id="year"></span> Healy Equipment Rentals</small>
-      <nav aria-label="Footer" style="font-size:13px;">
-        <a href="/privacy/" style="opacity:.8;text-decoration:none;margin-left:12px;">Privacy</a>
-      </nav>
-    </div>
-  </footer>
+<script>
+    // keyboard activation for accessibility (Enter/Space opens link)
+    (function(){
+        var links = document.querySelectorAll('.rental-link');
+        links.forEach(function(link){
+            link.setAttribute('tabindex','0');
+            link.addEventListener('keydown', function(e){
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    link.click();
+                }
+            });
+        });
+    })();
 
-  <script>
-    // Make entire card keyboard-activatable (Enter/Space)
-    document.querySelectorAll('.rentals-overview .rental-link').forEach(link => {
-      link.setAttribute('tabindex', '0');
-      link.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          link.click();
-        }
-      });
-    });
-
-    // Set current year in footer
+    // set current year
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
-
-    // Optional analytics hook (no-op by default)
-    document.querySelectorAll('.rentals-overview .rental-link').forEach(link => {
-      link.addEventListener('click', () => {
-        // window.dataLayer?.push({event: 'rentalClick', product: link.href});
-      });
-    });
-  </script>
+</script>
 </body>
 </html>
 
