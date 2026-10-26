@@ -6,76 +6,90 @@
   <title>Rentals — Healy Equipment Rentals</title>
   <meta name="description" content="Healy Equipment Rentals — reliable equipment for construction, landscaping, and events. Browse featured rentals and view full product details." />
 
-  <!-- Theme variables: map these to your existing site variables if you already have them -->
+  <!-- IMPORTANT: this page intentionally does NOT redefine your global colors or root variables.
+       It assumes your main site stylesheet is already linked and will control colors/typography.
+       If your site uses a different path for the main stylesheet, keep that link as-is. -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Scoped styles only for the rentals overview (won't override :root or global rules) -->
   <style>
-    :root{
-      --brand-color: #0a74da; /* replace with your brand variable if present */
-      --text: #111827;
-      --muted: #6b7280;
-      --bg: #ffffff;
-      --card-border: rgba(0,0,0,0.06);
-      --card-radius: 10px;
-      --card-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      --container-max: 1100px;
-      --page-padding: 28px;
-      --accent: var(--brand-color);
+    /* Scope everything under .rentals-overview to avoid changing site-wide styles */
+    .rentals-overview { padding: 36px 0; }
+    .rentals-overview .rentals-header { text-align:center; margin-bottom:22px; }
+    .rentals-overview .section-title { font-size:28px; margin:0 0 6px; }
+    .rentals-overview .section-subtitle { margin:0; font-size:15px; color:inherit; opacity:.75; }
+
+    .rentals-overview .rental-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      align-items:stretch;
     }
 
-    /* Basic page layout (keeps your existing colors and spacing) */
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:transparent;}
-    .site-container{max-width:var(--container-max);margin:0 auto;padding:var(--page-padding);box-sizing:border-box;}
-    header.site-header{padding:18px 0;border-bottom:1px solid rgba(0,0,0,0.04);margin-bottom:18px;}
-    .site-title{font-weight:700;color:var(--text);text-decoration:none;font-size:20px;}
+    .rentals-overview .rental-card {
+      background:inherit;
+      border-radius:10px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform .18s ease, box-shadow .18s ease;
+      /* Use subtle border/shadow only if your site doesn't already style .card */
+      border:1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+    .rentals-overview .rental-card:focus-within,
+    .rentals-overview .rental-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    }
 
-    /* Rentals section */
-    .rentals-overview{padding:36px 0;}
-    .rentals-header{text-align:center;margin-bottom:22px;}
-    .section-title{font-size:28px;margin:0 0 6px;color:inherit;}
-    .section-subtitle{color:var(--muted);margin:0;font-size:15px;}
+    .rentals-overview .rental-link { display:flex; flex-direction:column; color:inherit; text-decoration:none; height:100%; }
+    .rentals-overview .rental-media { width:100%; height:180px; overflow:hidden; background:#f6f7f8; display:flex; align-items:center; justify-content:center; }
+    .rentals-overview .rental-media img { width:100%; height:100%; object-fit:cover; display:block; }
 
-    /* Grid and cards */
-    .rental-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch;}
-    .rental-card{background:var(--bg);border:1px solid var(--card-border);border-radius:var(--card-radius);box-shadow:var(--card-shadow);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease;}
-    .rental-card:focus-within,.rental-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.12);}
+    .rentals-overview .rental-body { padding:18px; display:flex; flex-direction:column; gap:10px; }
+    .rentals-overview .rental-title { font-size:18px; margin:0; }
+    .rentals-overview .rental-lead { margin:0; font-size:14px; color:inherit; opacity:.8; }
+    .rentals-overview .rental-features { margin:0; padding-left:18px; font-size:13px; color:inherit; opacity:.8; }
+    .rentals-overview .rental-features li { margin-bottom:6px; }
+    .rentals-overview .rental-cta { margin-top:auto; font-weight:600; color:inherit; opacity:.95; }
 
-    .rental-link{display:flex;flex-direction:column;color:inherit;text-decoration:none;height:100%;}
-    .rental-media{width:100%;height:180px;overflow:hidden;background:#f6f7f8;display:flex;align-items:center;justify-content:center;}
-    .rental-media img{width:100%;height:100%;object-fit:cover;display:block;}
-
-    .rental-body{padding:18px;display:flex;flex-direction:column;gap:10px;}
-    .rental-title{font-size:18px;margin:0;color:inherit;}
-    .rental-lead{margin:0;color:var(--muted);font-size:14px;}
-    .rental-features{margin:0;padding-left:18px;color:var(--muted);font-size:13px;}
-    .rental-features li{margin-bottom:6px;}
-    .rental-cta{margin-top:auto;font-weight:600;color:var(--accent);display:inline-block;}
-
-    /* Small helper for badges or price */
-    .rental-badge{display:inline-block;background:rgba(10,116,218,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-size:13px;font-weight:600;}
+    .rentals-overview .rental-badge {
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+      /* Use currentColor with slight background so it inherits your brand color */
+      color:currentColor;
+      background:rgba(0,0,0,0.04);
+      opacity:.95;
+    }
 
     /* Responsive */
-    @media (max-width:980px){ .rental-grid{grid-template-columns:repeat(2,1fr);} }
-    @media (max-width:640px){ .rental-grid{grid-template-columns:1fr;} .rental-media{height:220px;} .section-title{font-size:22px;} }
+    @media (max-width:980px){ .rentals-overview .rental-grid{grid-template-columns:repeat(2,1fr);} }
+    @media (max-width:640px){ .rentals-overview .rental-grid{grid-template-columns:1fr;} .rentals-overview .rental-media{height:220px;} .rentals-overview .section-title{font-size:22px;} }
 
-    /* Accessibility focus */
-    .rental-link:focus{outline:3px solid rgba(10,116,218,0.18);outline-offset:3px;border-radius:8px;}
+    /* Accessibility focus ring for keyboard users */
+    .rentals-overview .rental-link:focus { outline:3px solid rgba(0,0,0,0.08); outline-offset:3px; border-radius:6px; }
   </style>
 </head>
 <body>
+  <!-- Keep your original header/navigation exactly as it is on the rest of the site -->
   <header class="site-header">
     <div class="site-container" style="display:flex;align-items:center;gap:18px;">
       <a class="site-title" href="/">Healy Equipment Rentals</a>
-      <!-- keep your existing nav here if you have one -->
+      <!-- your original nav should remain here -->
     </div>
   </header>
 
   <main>
     <div class="site-container">
-      <!-- Intro or breadcrumb (optional) -->
-      <nav aria-label="Breadcrumb" style="font-size:13px;color:var(--muted);margin-bottom:12px;">
-        <a href="/" style="color:var(--muted);text-decoration:none;">Home</a> &nbsp;/&nbsp; <span>Rentals</span>
+      <nav aria-label="Breadcrumb" style="font-size:13px;color:inherit;opacity:.8;margin-bottom:12px;">
+        <a href="/" style="color:inherit;text-decoration:none;opacity:.8;">Home</a> &nbsp;/&nbsp; <span>Rentals</span>
       </nav>
 
-      <!-- Rentals Overview Section -->
+      <!-- ====== Rentals Overview (REPLACE only this section if you prefer) ====== -->
       <section class="rentals-overview" id="rentals-overview" aria-labelledby="rentals-heading">
         <header class="rentals-header">
           <h2 id="rentals-heading" class="section-title">Featured Rentals</h2>
@@ -87,7 +101,6 @@
           <article class="rental-card" role="listitem" aria-labelledby="rental-1-title">
             <a class="rental-link" href="/rentals/compact-excavator.html" aria-describedby="rental-1-desc">
               <div class="rental-media" aria-hidden="true">
-                <!-- Replace src with your image path -->
                 <img src="/assets/images/compact-excavator.jpg" alt="Compact Excavator on site" loading="lazy">
               </div>
               <div class="rental-body">
@@ -151,27 +164,28 @@
           </article>
         </div>
       </section>
+      <!-- ====== End rentals overview ====== -->
 
-      <!-- Optional: call to action or contact -->
+      <!-- Keep your original CTA/contact area exactly as it was -->
       <section style="margin-top:28px;padding:18px;border-top:1px solid rgba(0,0,0,0.04);">
-        <p style="margin:0;color:var(--muted);font-size:14px;">Need help choosing equipment or want a custom quote? <a href="/contact/" style="color:var(--accent);font-weight:600;text-decoration:none;">Contact us</a>.</p>
+        <p style="margin:0;color:inherit;opacity:.8;font-size:14px;">Need help choosing equipment or want a custom quote? <a href="/contact/" style="font-weight:600;text-decoration:none;color:inherit;">Contact us</a>.</p>
       </section>
     </div>
   </main>
 
+  <!-- Keep your original footer exactly as it was on the site -->
   <footer style="margin-top:40px;padding:18px 0;border-top:1px solid rgba(0,0,0,0.04);">
     <div class="site-container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
-      <small style="color:var(--muted);">© <span id="year"></span> Healy Equipment Rentals</small>
+      <small style="opacity:.8;">© <span id="year"></span> Healy Equipment Rentals</small>
       <nav aria-label="Footer" style="font-size:13px;">
-        <a href="/privacy/" style="color:var(--muted);text-decoration:none;margin-left:12px;">Privacy</a>
+        <a href="/privacy/" style="opacity:.8;text-decoration:none;margin-left:12px;">Privacy</a>
       </nav>
     </div>
   </footer>
 
-  <!-- Small JS for keyboard activation and year -->
   <script>
     // Make entire card keyboard-activatable (Enter/Space)
-    document.querySelectorAll('.rental-link').forEach(link => {
+    document.querySelectorAll('.rentals-overview .rental-link').forEach(link => {
       link.setAttribute('tabindex', '0');
       link.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -182,16 +196,16 @@
     });
 
     // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
 
-    // Optional analytics hook: replace with your analytics call
-    document.querySelectorAll('.rental-link').forEach(link => {
+    // Optional analytics hook (no-op by default)
+    document.querySelectorAll('.rentals-overview .rental-link').forEach(link => {
       link.addEventListener('click', () => {
-        // Example: window.dataLayer?.push({event: 'rentalClick', product: link.href});
+        // window.dataLayer?.push({event: 'rentalClick', product: link.href});
       });
     });
   </script>
 </body>
 </html>
-
 
