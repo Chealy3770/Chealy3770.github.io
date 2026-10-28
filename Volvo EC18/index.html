@@ -62,7 +62,7 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 520px; /* UPDATED HEIGHT */
     background: #f6f7f8;
     border-radius: 16px;
     overflow: hidden;
@@ -176,9 +176,9 @@ body {
     <table class="rate-table">
         <tr><th>Period</th><th>Rate</th></tr>
         <tr><td>Daily</td><td>$275</td></tr>
-        <tr><td>Weekend</td><td>—</td></tr>
-        <tr><td>Weekly</td><td>—</td></tr>
-        <tr><td>Monthly</td><td>—</td></tr>
+        <tr><td>Weekend</td><td>450</td></tr>
+        <tr><td>Weekly</td><td>750</td></tr>
+        <tr><td>Monthly</td><td>1500</td></tr>
     </table>
 
     <!-- ATTACHMENTS SECTION -->
@@ -186,7 +186,7 @@ body {
 
     <div style="
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; /* NOW 3 COLUMNS */
         gap: 20px;
         margin-top: 20px;
     ">
@@ -202,7 +202,7 @@ body {
         ">
             <img src="../../12 Inch Bucket Main Image.png" 
                  alt="12-inch Bucket Attachment" 
-                 style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px;">
+                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
             <h4 style="margin: 12px 0 6px 0;">12" Bucket</h4>
             <p style="margin: 0; font-size: 0.95em; color: #444;">Included</p>
         </div>
@@ -218,9 +218,25 @@ body {
         ">
             <img src="../../24 Inch Bucket Main Image.png" 
                  alt="24-inch Bucket Attachment" 
-                 style="width: 100%; height: 220px; object-fit: cover; border-radius: 12px;">
+                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
             <h4 style="margin: 12px 0 6px 0;">24" Bucket</h4>
             <p style="margin: 0; font-size: 0.95em; color: #444;">Starting at $10/day</p>
+        </div>
+
+        <!-- Attachment 3 (NEW) -->
+        <div style="
+            background: #fff;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 6px 20px rgba(40,50,100,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+            text-align: center;
+        ">
+            <img src="../../Tilt Bucket.png" 
+                 alt="Both Bucket Attachments" 
+                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
+            <h4 style="margin: 12px 0 6px 0;">Both Buckets</h4>
+            <p style="margin: 0; font-size: 0.95em; color: #444;">Starting at $15/day</p>
         </div>
 
     </div>
