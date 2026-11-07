@@ -150,7 +150,10 @@ body {
 
         <!-- IMAGE CAROUSEL -->
         <div class="carousel" id="carousel">
-            <img id="carousel-img" src="../../EC18 Main Image.png" alt="Volvo EC18 Excavator">
+            <!-- Use multiple <img> tags here if you want more images -->
+            <img src="../../EC18 Main Image.png" alt="Volvo EC18 Excavator">
+            <img src="../../EC18 Side View.png" alt="Volvo EC18 Side View">
+            <img src="../../EC18 Bucket.png" alt="Volvo EC18 Bucket">
             <button class="prev" onclick="prevImg()">‹</button>
             <button class="next" onclick="nextImg()">›</button>
         </div>
@@ -243,26 +246,32 @@ body {
 </footer>
 
 <script>
-let images = [
-    "../../EC18 Main Image.png",
-    "../../EC18 Side View.png",
-    "../../EC18 Bucket.png"
-];
+// Get all images inside the carousel
+const carousel = document.getElementById('carousel');
+const slides = carousel.querySelectorAll('img');
+let current = 0;
 
-let index = 0;
+// Hide all except the first
+function showSlide(index) {
+    slides.forEach((img, i) => {
+        img.style.display = i === index ? 'block' : 'none';
+    });
+}
 
 function nextImg() {
-    index = (index + 1) % images.length;
-    document.getElementById("carousel-img").src = images[index];
+    current = (current + 1) % slides.length;
+    showSlide(current);
 }
 
 function prevImg() {
-    index = (index - 1 + images.length) % images.length;
-    document.getElementById("carousel-img").src = images[index];
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
 }
+
+// Initialize
+showSlide(current);
 </script>
 
 </body>
 </html>
-
 
