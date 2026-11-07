@@ -62,7 +62,7 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 520px; /* UPDATED HEIGHT */
+    height: 520px;
     background: #f6f7f8;
     border-radius: 16px;
     overflow: hidden;
@@ -151,9 +151,6 @@ body {
         <!-- IMAGE CAROUSEL -->
         <div class="carousel" id="carousel">
             <img id="carousel-img" src="../../EC18 Main Image.png" alt="Volvo EC18 Excavator">
-            <img id="carousel-img" src="../../Back of Volvo.jpg" alt="Volvo EC18 Excavator">
-            <img id="carousel-img" src="../../Machine Picture.JPG" alt="Volvo EC18 Excavator">
-            <img id="carousel-img" src="../../Machine on trailer.jpg" alt="Volvo EC18 Excavator">
             <button class="prev" onclick="prevImg()">‹</button>
             <button class="next" onclick="nextImg()">›</button>
         </div>
@@ -165,11 +162,7 @@ body {
 
             <ul>
                 <li>Operating Weight: 4,321 lbs</li>
-                <li>Battery: 40 V Lithium-ion</li>
-                <li>Battery Life: 20kWh (5-7 Hours of Operation)</li>
-                <li>Charging: Low Cost Charging - $3 Electricity Cost per full charge</li>
-                <li>Max Digging Depth: 8'10"</li>
-                <li>Retractable tracks to fit in tight areas (4'5" Wide Standard, 3'3" Wide Retracted)</li>
+                <li>Battery: Lithium-ion</li>
                 <li>Attachments: 12" bucket, 24" bucket</li>
                 <li>Zero emissions</li>
                 <li>Low noise</li>
@@ -183,9 +176,9 @@ body {
     <table class="rate-table">
         <tr><th>Period</th><th>Rate</th></tr>
         <tr><td>Daily</td><td>$275</td></tr>
-        <tr><td>Weekend</td><td>$450</td></tr>
-        <tr><td>Weekly</td><td>$750</td></tr>
-        <tr><td>Monthly</td><td>$1500</td></tr>
+        <tr><td>Weekend</td><td>—</td></tr>
+        <tr><td>Weekly</td><td>—</td></tr>
+        <tr><td>Monthly</td><td>—</td></tr>
     </table>
 
     <!-- ATTACHMENTS SECTION -->
@@ -193,57 +186,27 @@ body {
 
     <div style="
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr; /* NOW 3 COLUMNS */
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
         margin-top: 20px;
     ">
 
-        <!-- Attachment 1 -->
-        <div style="
-            background: #fff;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 6px 20px rgba(40,50,100,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-            text-align: center;
-        ">
-            <img src="../../12 Inch Bucket Main Image.png" 
-                 alt="12-inch Bucket Attachment" 
-                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
-            <h4 style="margin: 12px 0 6px 0;">12" Bucket</h4>
-            <p style="margin: 0; font-size: 0.95em; color: #444;">Included</p>
+        <div style="background:#fff;border-radius:16px;padding:16px;box-shadow:0 6px 20px rgba(40,50,100,0.04);border:1px solid rgba(0,0,0,0.04);text-align:center;">
+            <img src="../../12in Bucket.png" style="width:100%;height:300px;object-fit:cover;border-radius:12px;">
+            <h4>12" Bucket</h4>
+            <p>Starting at $25/day</p>
         </div>
 
-        <!-- Attachment 2 -->
-        <div style="
-            background: #fff;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 6px 20px rgba(40,50,100,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-            text-align: center;
-        ">
-            <img src="../../24 Inch Bucket Main Image.png" 
-                 alt="24-inch Bucket Attachment" 
-                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
-            <h4 style="margin: 12px 0 6px 0;">24" Bucket</h4>
-            <p style="margin: 0; font-size: 0.95em; color: #444;">Starting at $10/day</p>
+        <div style="background:#fff;border-radius:16px;padding:16px;box-shadow:0 6px 20px rgba(40,50,100,0.04);border:1px solid rgba(0,0,0,0.04);text-align:center;">
+            <img src="../../24in Bucket.png" style="width:100%;height:300px;object-fit:cover;border-radius:12px;">
+            <h4>24" Bucket</h4>
+            <p>Starting at $35/day</p>
         </div>
 
-        <!-- Attachment 3 (NEW) -->
-        <div style="
-            background: #fff;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 6px 20px rgba(40,50,100,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-            text-align: center;
-        ">
-            <img src="../../Both Attahements EC18.png" 
-                 alt="Both Bucket Attachments" 
-                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;">
-            <h4 style="margin: 12px 0 6px 0;">Both Buckets</h4>
-            <p style="margin: 0; font-size: 0.95em; color: #444;">Starting at $15/day</p>
+        <div style="background:#fff;border-radius:16px;padding:16px;box-shadow:0 6px 20px rgba(40,50,100,0.04);border:1px solid rgba(0,0,0,0.04);text-align:center;">
+            <img src="../../Tilt Bucket.png" style="width:100%;height:300px;object-fit:cover;border-radius:12px;">
+            <h4>Tilt Bucket</h4>
+            <p>Starting at $45/day</p>
         </div>
 
     </div>
@@ -281,14 +244,18 @@ body {
 
 <script>
 let images = [
-    "../../EC18 Main Image.png"
+    "../../EC18 Main Image.png",
+    "../../EC18 Side View.png",
+    "../../EC18 Bucket.png"
 ];
+
 let index = 0;
 
 function nextImg() {
     index = (index + 1) % images.length;
     document.getElementById("carousel-img").src = images[index];
 }
+
 function prevImg() {
     index = (index - 1 + images.length) % images.length;
     document.getElementById("carousel-img").src = images[index];
