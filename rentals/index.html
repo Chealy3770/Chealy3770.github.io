@@ -9,11 +9,9 @@
     gtag('js', new Date());
     gtag('config', 'AW-17979222323');
   </script>
-
   <meta charset="UTF-8" />
   <title>Rentals | Healy's Equipment Rentals</title>
   <link rel="icon" type="image/png" href="../Healys-Equipment-Rentals-White-Background.png" />
-
   <style>
     body {
       margin: 0;
@@ -134,12 +132,10 @@
       font-size: 0.85em;
       color: #777777;
     }
-
     /* Rentals grid styles (scoped and conservative so they inherit your site look) */
     .rentals-section {
       margin-top: 8px;
     }
-
     .rentals-header {
       display:flex;
       align-items:baseline;
@@ -157,7 +153,6 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
-
     .rental-card {
       background: #ffffff;
       border-radius: 16px;
@@ -174,7 +169,6 @@
       transform: translateY(-6px);
       box-shadow: 0 14px 36px rgba(40,50,100,0.08);
     }
-
     /* ====== ADJUSTED: make the image boxes a bit taller so more top/bottom shows ======
        Previously used a fixed height of 180px. Increase the visual area by using a slightly taller aspect ratio.
        This change is intentionally small so layout remains consistent but images show more top/bottom.
@@ -188,6 +182,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      position: relative;
     }
     .rental-media img {
       width: 100%;
@@ -195,7 +190,22 @@
       object-fit: cover; /* keep the fill look while showing more of the image due to taller container */
       display: block;
     }
-
+    .coming-soon-banner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      padding: 12px 8px;
+      box-sizing: border-box;
+      background: rgba(238, 186, 0, 0.92);
+      color: #000000;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
     .rental-body {
       padding: 18px;
       display: flex;
@@ -222,6 +232,8 @@
       color:#000;
       background:#fff3c4;
       border:1px solid rgba(0,0,0,0.04);
+      flex-shrink: 0;
+      white-space: nowrap;
     }
     .rental-lead {
       margin:0;
@@ -236,7 +248,6 @@
       font-size:13px;
     }
     .rental-features li { margin-bottom:6px; }
-
     .rental-cta {
       margin-top:auto;
       display:flex;
@@ -246,7 +257,6 @@
       color:#0b66a3;
       text-decoration:none;
     }
-
     /* ===== New info box styles (matches your original page look) ===== */
     .info-boxes {
       display: grid;
@@ -282,7 +292,6 @@
       text-decoration: none;
       font-weight: 600;
     }
-
     @media (max-width: 980px) {
       .rentals-grid { grid-template-columns: repeat(2, 1fr); }
       .info-boxes { grid-template-columns: 1fr; }
@@ -304,14 +313,12 @@
            alt="Healy's Equipment Rentals Logo"
            class="banner-logo" />
     </div>
-
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="/rentals/"><button class="nav-button active" aria-current="page">Rentals</button></a>
       <a href="/about/"><button class="nav-button">About Us</button></a>
       <a href="/privacy/"><button class="nav-button">Privacy &amp; Terms</button></a>
     </nav>
   </header>
-
   <div class="main-container" role="main" aria-labelledby="rentals-heading">
     <section class="section-block">
       <h2 id="rentals-heading">Our Rentals</h2>
@@ -322,7 +329,6 @@
         All of our equipment is available for pickup or delivery. Option to rent a trailer including chains and binders is offered with heavy equipment pickup.
       </p>
     </section>
-
     <!-- Info boxes (restored) -->
     <section class="section-block" aria-labelledby="info-heading">
       <div class="info-boxes" role="region" aria-labelledby="info-heading">
@@ -334,7 +340,6 @@
             <br><strong>Email:</strong> <a class="footer-link" href="mailto:info@healysequipmentrentals.com">info@healysequipmentrentals.com</a>
           </p>
         </div>
-
         <div class="info-box" aria-labelledby="form-title">
           <h3 id="form-title" class="info-title">Online Request Form</h3>
           <p class="info-body">
@@ -344,13 +349,11 @@
         </div>
       </div>
     </section>
-
     <!-- Featured product cards -->
     <section class="section-block rentals-section" aria-labelledby="featured-heading">
       <div class="rentals-header">
         <h3 id="featured-heading">Featured Equipment</h3>
       </div>
-
       <div class="rentals-grid" role="list">
         <!-- Card 1 -->
         <article class="rental-card" role="listitem" aria-labelledby="rental-1-title">
@@ -358,73 +361,60 @@
             <div class="rental-media" aria-hidden="true">
               <img src="../EC18 Main Image.png" alt="Compact Excavator" loading="lazy">
             </div>
-
             <div class="rental-body">
               <div class="rental-title-row">
                 <h3 id="rental-1-title" class="rental-title">Volvo EC18 Compact Excavator</h3>
                 <span class="rental-badge">Daily from $275</span>
               </div>
-
               <p id="rental-1-desc" class="rental-lead">Powerful Digging, Zero Emissions, Low Noise - Perfect for your next job</p>
-
               <ul class="rental-features" aria-hidden="true">
                 <li>Fully Electric Excavator</li>
                 <li>4,321 lbs; easy transport</li>
                 <li>12" and 24" Bucket Attachments</li>
               </ul>
-
               <span class="rental-cta" aria-hidden="true">View details →</span>
             </div>
           </a>
         </article>
-
         <!-- Card 2 -->
         <article class="rental-card" role="listitem" aria-labelledby="rental-2-title">
           <a href="/rentals/compact-wheel-loader.html" class="rental-link" style="color:inherit;text-decoration:none;display:flex;flex-direction:column;height:100%;" aria-describedby="rental-2-desc">
             <div class="rental-media" aria-hidden="true">
               <img src="../Avant 528 Nolts.jpg" alt="Compact Wheel Loader" loading="lazy">
+              <span class="coming-soon-banner">Coming Soon</span>
             </div>
-
             <div class="rental-body">
               <div class="rental-title-row">
                 <h3 id="rental-2-title" class="rental-title">Avant 528 Compact Wheel Loader</h3>
                 <span class="rental-badge">Daily from $250</span>
               </div>
-
               <p id="rental-2-desc" class="rental-lead">Multi Purpose Machine - great for moving dirt, plowing snow, clearing brush and much more.</p>
-
               <ul class="rental-features" aria-hidden="true">
                 <li>Lift Capacity: 2094 lbs</li>
                 <li>Multiple attachments: bucket, pallet forks, grapple, snow blade</li>
                 <li>Operator comfort and heated cab</li>
               </ul>
-
               <span class="rental-cta" aria-hidden="true">View details →</span>
             </div>
           </a>
         </article>
-
         <!-- Card 3 -->
         <article class="rental-card" role="listitem" aria-labelledby="rental-3-title">
           <a href="/Generac GP3300i/index.html" class="rental-link" style="color:inherit;text-decoration:none;display:flex;flex-direction:column;height:100%;" aria-describedby="rental-3-desc">
             <div class="rental-media" aria-hidden="true">
               <img src="../Generac Main Image.png" alt="Portable Generator" loading="lazy">
             </div>
-
             <div class="rental-body">
               <div class="rental-title-row">
                 <h3 id="rental-3-title" class="rental-title">Generac GP3300i Portable Generator</h3>
                 <span class="rental-badge">Daily from $45</span>
               </div>
-
               <p id="rental-3-desc" class="rental-lead">Reliable power on site with quiet operation and fuel efficiency — ideal for events and remote work.</p>
-
               <ul class="rental-features" aria-hidden="true">
                 <li>Inverter generator</li>
                 <li>Lightweight and small</li>
                 <li>Low-noise enclosure</li>
               </ul>
-
               <span class="rental-cta" aria-hidden="true">View details →</span>
             </div>
           </a>
@@ -433,7 +423,6 @@
     </section>
     <!-- End rentals section -->
   </div>
-
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-left">
@@ -447,7 +436,6 @@
           Location: Mechanicsburg, PA
         </p>
       </div>
-
       <div class="footer-right">
         <h4>Site Info</h4>
         <p>
@@ -459,7 +447,6 @@
       </div>
     </div>
   </footer>
-
   <script>
     // keyboard activation for accessibility (Enter/Space opens link)
     (function(){
@@ -474,7 +461,6 @@
         });
       });
     })();
-
     // set current year
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
